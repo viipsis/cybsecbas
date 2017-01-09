@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>All participants</title>
+    </head>
+    <body>
+        <a href="/form">Sign up as new participant</a>
+        
+        <h1>List of participants</h1>
+
+         <ul>
+            <li th:each="item : ${list}">
+                <span th:text="${item}">.</span>
+            </li>
+        </ul>
+        
+        <a href="/login">Login</a>
+        <div th:replace="footer :: footer">&copy; 2017 </div>
+    </body>
+</html>

@@ -8,6 +8,7 @@ public class Signup extends AbstractPersistable<Long> {
 
     private String name;
     private String address;
+    private Integer vipcode;
 
     public Signup() {
         super();
@@ -19,6 +20,21 @@ public class Signup extends AbstractPersistable<Long> {
         this.address = address;
     }
 
+    
+    public Signup(String name, String address, String vipcode) {
+        this();
+        this.name = name;
+        this.address = address;
+        
+        if (vipcode != null && vipcode.length() >=1) {
+            this.vipcode = 2;       
+        } else {
+            this.vipcode = null;
+        }
+           
+    }
+
+    
     public String getName() {
         return name;
     }
@@ -34,5 +50,14 @@ public class Signup extends AbstractPersistable<Long> {
     public void setAddress(String address) {
         this.address = address;
     }
+    
+    
+    public Integer getVipcode () {
+        return this.vipcode;
+    }
+    
+    public void setVipcode(Integer vipcode) {
+        this.vipcode = vipcode;
+    }    
 
 }

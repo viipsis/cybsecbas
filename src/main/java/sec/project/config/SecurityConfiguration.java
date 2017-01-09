@@ -11,6 +11,13 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/*
+https://cybersecuritybase.github.io/project/
+In the first course project, your task is to create a web application 
+that has at least five flaws from the OWASP top ten 
+list (https://www.owasp.org/index.php/Top_10_2013-Top_10). 
+*/
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -20,9 +27,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // no real security at the moment
+        
+        http.headers().xssProtection().block(false); //:)
+        
+        http.csrf().disable();
+        
         http.authorizeRequests()
-                .anyRequest().permitAll();
+                .antMatchers("/h2-console/*").permitAll()
+                .anyRequest().authenticated();
+        http.formLogin()
+                .permitAll();
     }
 
     @Autowired

@@ -10,9 +10,17 @@
         <form action="#" th:action="@{/form}" method="POST">
             <p><label for="name">Name</label>: <input type="text" name="name" id="name"/></p>
             <p><label for="address">Address</label>: <input type="text" name="address" id="address"/></p>
+            <p><label for="vip">VIP Code</label>: <input type="text" name="vipcode" id="vipcode"/></p>
             <p><input type="submit" value="Submit" /></p>
         </form>
 
         <p></p>
-    </body>
+<object type="application/x-shockwave-flash" data="/globe2.swf"> 
+    <param name="movie" value="/globe2.swf" />
+    <param name="quality" value="low" />
+    <!-- Sandwich the embed tag inside the object tag -->
+    <embed th:src="@{/globe2.swf}" quality="low" />
+</object>
+<div th:replace="footer :: footer">&copy; 2017 The Static Templates</div>
+</body>
 </html>
